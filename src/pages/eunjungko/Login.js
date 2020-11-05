@@ -33,7 +33,7 @@ class Login extends Component {
       <div className='Login'>
         <img
           className='logo'
-          src='images/logo_text.png'
+          src='images/eunjungko/logo_text.png'
           alt='instagram logo'
           srcSet=''
         />
