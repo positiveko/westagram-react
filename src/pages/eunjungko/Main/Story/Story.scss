@@ -1,0 +1,43 @@
+.storyBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 615px;
+  height: 118px;
+  margin-top: 35px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  overflow: hidden;
+  overflow-x: scroll;
+
+  .story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100px;
+
+    .storyImgWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 64px;
+      height: 64px;
+      background-image: url('/images/eunjungko/rainbow.png');
+      background-size: cover;
+      img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+      }
+    }
+    .storyUser {
+      text-align: center;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,139 +1,114 @@
 import React, { Component } from 'react';
+// import ReactDOM from 'react-dom';
 import './Main.scss';
+import '../../../Styles/common.scss';
+import Nav from './Nav/Nav';
+import Story from './Story/Story';
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
-      <>
-        <nav>
-          <div className='navWrapper'>
-            <img src='img/logo_text.png' alt='Instagram' className='textLogo' />
-            <form className='search'>
-              <div className='magnifier'></div>
-              <input
-                type='text'
-                autoCapitalize='none'
-                placeholder='검색'
-                className='searchInput'
-              />
-              <span className='xbtn'></span>
-              <div className='searchResultList displayNone'></div>
-            </form>
-            <div className='navRight'>
-              <img src='img/home.png' alt='home' className='btn home' />
-              <img
-                src='img/airplane.png'
-                alt='airplane'
-                className='btn airplane'
-              />
-              <img
-                src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png'
-                alt='explore'
-                className='btn explore'
-              />
-              <img
-                src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
-                alt='heart'
-                className='btn heart'
-              />
-              <img
-                src='img/userProfile.jpg'
-                alt='userProfile'
-                className='btn small'
-              />
-            </div>
-          </div>
-        </nav>
-
+      <div className='bodyEunjung'>
+        <Nav />
         <main>
-          <div className='feeds'>
-            <article>
-              <div className='articleHeader'>
-                <div className='userInfo'>
-                  <img
-                    src='img/userProfile.jpg'
-                    alt='userProfile'
-                    className='userProfile middle'
-                  />
-                  <div className='textArea'>
-                    <div className='userName'>edie_ko</div>
-                    <div className='userLocation sfont'>위코드</div>
+          <div className='MainArea'>
+            <Story />
+            <div className='articleArea'>
+              <article>
+                <div className='articleHeader'>
+                  <div className='userInfo'>
+                    <div className='imgBox'>
+                      <img
+                        src='images/eunjungko/userProfile.jpg'
+                        alt='userProfile'
+                        className='userProfile middle'
+                      />
+                    </div>
+                    <div className='textArea'>
+                      <div className='userName'>edie_ko</div>
+                      <div className='userLocation sfont'>위코드</div>
+                    </div>
                   </div>
+                  <img
+                    src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/more.png'
+                    alt='three dots'
+                    className='threeBtn'
+                  />
                 </div>
                 <img
-                  src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/more.png'
-                  alt='three dots'
-                  className='threeBtn'
+                  src='images/eunjungko/articleImg.jpg'
+                  alt='articleImg'
+                  className='articleImg'
                 />
-              </div>
-              <img
-                src='img/articleImg.jpg'
-                alt='articleImg'
-                className='articleImg'
-              />
-              <div className='articleFooter'>
-                <div className='iconbar'>
-                  <div className='iconWrapper'>
-                    <img
-                      src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
-                      alt='heart'
-                      className='btn heart'
-                    />
-                    <img
-                      src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/comment.png'
-                      alt='comment'
-                      className='btn comment'
-                    />
-                    <img
-                      src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/share.png'
-                      alt='share'
-                      className='btn share'
-                    />
-                  </div>
-                  <img
-                    src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/bookmark.png'
-                    alt='bookmark'
-                    className='btn bookmark'
-                  />
-                </div>
-                <div className='commentSet'>
-                  <div className='likeStatus'>
-                    <span className='bold'>wecode</span>님 외{' '}
-                    <span className='bold'>여러 명</span>이 좋아합니다
-                  </div>
-                  <div className='comment'>
-                    <div className='commentSet'>
-                      <span className='userId'>edie_ko</span>
-                      <span className='userComment'>
-                        댓글 작성 후 새로고침을 해보세요.
-                      </span>
-                      <button className='deleteBtn'>X</button>
+                <div className='articleFooter'>
+                  <div className='iconbar'>
+                    <div className='iconWrapper'>
+                      <img
+                        src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
+                        alt='heart'
+                        className='btn heart'
+                      />
+                      <img
+                        src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/comment.png'
+                        alt='comment'
+                        className='btn comment'
+                      />
+                      <img
+                        src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/share.png'
+                        alt='share'
+                        className='btn share'
+                      />
                     </div>
                     <img
-                      src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
-                      alt='smallHeart'
-                      className='smallHeart'
+                      src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/bookmark.png'
+                      alt='bookmark'
+                      className='btn bookmark'
                     />
                   </div>
+                  <div className='commentArea'>
+                    <div className='likeStatus'>
+                      <span className='bold'>wecode</span>님 외{' '}
+                      <span className='bold'>여러 명</span>이 좋아합니다
+                    </div>
+                    <div className='comment'>
+                      <div className='commentSet'>
+                        <span className='userId'>edie_ko</span>
+                        <span className='userComment'>
+                          댓글 작성 후 새로고침을 해보세요.
+                        </span>
+                        <button className='deleteBtn'>X</button>
+                      </div>
+                      <img
+                        src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
+                        alt='smallHeart'
+                        className='smallHeart'
+                      />
+                    </div>
+                  </div>
+                  <div className='time gray'>4시간 전</div>
                 </div>
-                <div className='time gray'>4시간 전</div>
-              </div>
 
-              <form action='' className='commentForm'>
-                <input
-                  type='text'
-                  className='commentInput'
-                  placeholder='댓글 달기...'
-                />
-                <button className='addBtn'>게시</button>
-              </form>
-            </article>
+                <form action='' className='commentForm'>
+                  <input
+                    type='text'
+                    className='commentInput'
+                    placeholder='댓글 달기...'
+                  />
+                  <button className='addBtn'>게시</button>
+                </form>
+              </article>
+            </div>
           </div>
 
-          <div className='main-right'>
+          <div className='Main-right'>
             <div className='userInfo'>
               <img
-                src='img/userProfile.jpg'
+                src='images/eunjungko/userProfile.jpg'
                 alt='userProfile'
                 className='userProfile big'
               />
@@ -248,7 +223,7 @@ class Main extends Component {
             </div>
           </div>
         </main>
-      </>
+      </div>
     );
   }
 }

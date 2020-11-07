@@ -1,0 +1,342 @@
+/* 전체 도큐먼트에 중복 할당되는 클래스 */
+.btn {
+  height: 30px;
+  width: 25px;
+  height: 25px;
+  margin: 15px 10px 15px 10px;
+}
+
+.userName,
+.userId,
+.bold {
+  font-weight: 700;
+}
+
+.gray {
+  color: #797878;
+}
+
+.darkgray {
+  color: #909090;
+}
+
+.lightgray {
+  color: #bebebe;
+}
+
+.userInfo .userProfile {
+  border-radius: 50%;
+}
+
+.userInfo .textArea {
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.big {
+  width: 56px;
+  height: 56px;
+}
+
+.middle {
+  width: 32px;
+  height: 32px;
+}
+
+.small {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.sfont {
+  font-size: 11px;
+}
+
+/* 본문 */
+#root {
+  width: 100%;
+}
+
+.bodyEunjung {
+  /* 메인 시작 */
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fafafa;
+
+    .articleArea {
+      width: 615px;
+
+      article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+        margin-bottom: 30px;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+        background-color: #fff;
+
+        .articleHeader {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          height: 60px;
+          width: 100%;
+
+          .userInfo {
+            display: flex;
+            flex-direction: row;
+
+            .imgBox {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left: 10px;
+              width: 32px;
+              height: 60px;
+              // .userProfile middle {
+              //   padding: 10px;
+              //   margin-left: 5px;
+              //   width: 32px;
+              //   height: 32px;
+              // }
+            }
+
+            .textArea {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+          }
+          .threeBtn {
+            width: 23px;
+            height: 23px;
+            margin: auto 10px;
+          }
+        }
+
+        .articleImg {
+          width: 614px;
+        }
+
+        .articleFooter {
+          width: 100%;
+          padding: 4px 8px 0px 8px;
+
+          .iconbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 40px;
+            width: 100%;
+
+            .iconWrapper {
+              display: flex;
+              flex-direction: row;
+              .btn {
+                margin: auto 8px;
+              }
+            }
+          }
+          .commentArea {
+            // display: flex;
+            // flex-direction: column;
+            padding: 0 10px 0px 10px;
+            .likeStatus {
+              margin-bottom: 8px;
+            }
+            .comment {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+              .userComment {
+                margin: 0 7px;
+              }
+              .deleteBtn {
+                width: 10px;
+                border: none;
+                color: #469edb;
+                background: none;
+                cursor: pointer;
+              }
+              button:focus {
+                outline: none;
+              }
+            }
+          }
+          .smallHeart {
+            height: 12px;
+            width: 12px;
+          }
+          .time {
+            margin: 0 0 10px 10px;
+            font-size: 0.75em;
+          }
+        }
+        .commentForm {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 50px;
+          padding: 10px;
+          border-top: 1px solid lightgray;
+          .commentInput {
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+          .addBtn {
+            width: 40px;
+            border: none;
+            color: #bee1fd;
+            background: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  /* 우측 메인 */
+  .Main-right {
+    position: sticky;
+    width: 293px;
+    height: 430px;
+    top: 100px;
+    margin-left: 30px;
+    .userInfo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 293px;
+      height: 56px;
+    }
+    .userText {
+      padding: 0 auto;
+    }
+    .recommendText {
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 0 4px 0;
+    }
+    .recommended {
+      .recommendBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0;
+        .userInfo {
+          display: flex;
+          flex-direction: row;
+          height: 45px;
+          .userText {
+            margin-left: 13px;
+          }
+        }
+        .follow {
+          width: 40px;
+          font-size: 12px;
+          border: none;
+          color: #469edb;
+          background: none;
+          text-align: end;
+        }
+      }
+    }
+    .menu {
+      display: inline-block;
+      margin-top: 25px;
+      width: 100%;
+      padding: 0;
+      border-image-repeat: stretch;
+      list-style: none;
+      li {
+        display: inline-block;
+        vertical-align: baseline;
+        margin: 0;
+        line-height: 13px;
+        font-size: 11px;
+        &::after {
+          content: '\00B7';
+          float: right;
+          margin-left: 0.25em;
+        }
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+    .copyright {
+      font-size: 11px;
+      margin-top: 5px;
+    }
+  }
+
+  /* responsive browser media query settings */
+  @media screen and (max-width: 960px) {
+    .bodyEunjung {
+      width: 100%;
+      min-width: 500px;
+    }
+    .Nav {
+      width: 100%;
+      min-width: 500px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .bodyEunjung {
+      width: 100%;
+      min-width: 500px;
+    }
+    .Nav {
+      width: 100%;
+      min-width: 500px;
+      .search {
+        width: 30%;
+      }
+    }
+    .articleImg {
+      width: 100%;
+    }
+    .Main-right {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    article {
+      width: 100%;
+      min-width: 500px;
+      .articleHeader {
+        width: 100%;
+      }
+      .articleImg {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .Nav {
+      .search {
+        display: none;
+      }
+    }
+    article {
+      width: 500px;
+      .articleHeader {
+        width: 500px;
+      }
+      .articleImg {
+        width: 100%;
+      }
+    }
+  }
+}
