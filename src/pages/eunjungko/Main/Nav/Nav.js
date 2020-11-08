@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.scss';
-
-// const DataList = './searchdata.json'
+import DATA from './searchdata';
 
 class Nav extends Component {
   constructor(props) {
@@ -9,15 +8,15 @@ class Nav extends Component {
     this.state = {
       searchActive: false,
       searchInputValue: '',
+      searchList: [],
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick() {
-  //   this.setState((state) => ({
-  //     searchActive: !state.searchActive,
-  //   }));
-  // }
+  componentDidMount = () => {
+    this.setState({
+      searchList: DATA,
+    });
+  };
 
   onSearchInputChange = (e) => {
     this.setState({
@@ -26,6 +25,9 @@ class Nav extends Component {
   };
 
   render() {
+    const { searchActive, searchInputValue, searchList } = this.state;
+    console.log('check:   ', searchList);
+
     return (
       <div className='Nav'>
         <div className='NavWrapper'>
@@ -34,30 +36,25 @@ class Nav extends Component {
             alt='Instagram'
             className='textLogo'
           />
-          <form className={this.state.searchActive ? 'searchActive' : 'search'}>
+          <form className={searchActive ? 'searchActive' : 'search'}>
             <div
-              className={
-                this.state.searchActive ? 'magnifier active' : 'magnifier'
-              }></div>
+              className={searchActive ? 'magnifier active' : 'magnifier'}></div>
             <input
               type='text'
               autoCapitalize='none'
               placeholder='검색'
-              value={this.state.searchInputValue}
-              className={
-                this.state.searchActive ? 'searchInput active' : 'searchInput'
-              }
+              value={searchInputValue}
+              className={searchActive ? 'searchInput active' : 'searchInput'}
               onChange={this.onSearchInputChange}
               onFocus={() => this.setState({ searchActive: true })}
               onBlur={() =>
                 this.setState({ searchInputValue: '', searchActive: false })
               }
             />
-            <span
-              className={
-                this.state.searchActive ? 'xbtn active' : 'xbtn'
-              }></span>
-            <div className='searchResultList displayNone'></div>
+            <span className={searchActive ? 'xbtn active' : 'xbtn'}></span>
+            <div className='searchResultList displayNone'>
+              {/* {searchList.map()} 구현 중입니다.. 투 비 컨티뉴.. */}
+            </div>
           </form>
           <div className='navRight'>
             <img
