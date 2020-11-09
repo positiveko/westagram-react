@@ -19,6 +19,13 @@
     align-items: center;
     width: 80px;
     height: 100px;
+    margin: auto 3px;
+    &:first-child {
+      margin-left: 10px;
+    }
+    &:last-child {
+      padding-right: 10px;
+    }
 
     .storyImgWrapper {
       display: flex;
@@ -35,9 +42,13 @@
       }
     }
     .storyUser {
-      text-align: center;
+      width: 65px;
       margin-top: 5px;
-      font-size: 14px;
+      text-align: center;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

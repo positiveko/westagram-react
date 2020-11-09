@@ -19,9 +19,19 @@ class Article extends Component {
 
   paintComment = () => {
     const comments = [
-      { id: 1, userId: 'edie_ko', content: '댓글 작성 후 새로고침을 해보세요' },
-      { id: 2, userId: 'edie_ko', content: '아직 아무 일도 벌어지지 않습니다' },
-      { id: 3, userId: 'edie_ko', content: '추가할 기능입니다...' },
+      {
+        id: 1,
+        userId: 'edie_ko',
+        content: '댓글 작성 후 새로고침을 해보세요',
+        like: false,
+      },
+      {
+        id: 2,
+        userId: 'edie_ko',
+        content: '아직 아무 일도 벌어지지 않습니다',
+        like: false,
+      },
+      { id: 3, userId: 'edie_ko', content: '추가할 기능입니다...', like: true },
     ];
     const userId = 'edie_ko';
     this.setState({
@@ -40,28 +50,75 @@ class Article extends Component {
     e.preventDefault();
     const { comments, addedComment, userId } = this.state;
     const addedComments = [...comments];
+    console.log(comments);
+    console.log(addedComments);
     addedComments.push({
       id: Date.now(),
       userId: userId,
       content: addedComment,
+      like: false,
     });
+    console.log(addedComment);
+    console.log(addedComments);
     this.setState({
       addedComment: '',
       comments: addedComments,
     });
+    console.log(comments);
   };
 
   handleCommentDelete = (cmt) => {
-    const comments = this.state.comments.filter((el) => el.id !== cmt.id);
+    const deletedComments = this.state.comments.filter(
+      (el) => el.id !== cmt.id
+    );
     this.setState({
-      comments: comments,
+      comments: deletedComments,
     });
   };
 
+  handleCommentLike = (cmt) => {
+    const { comments } = this.state;
+    const likedComments = [...comments];
+    likedComments.filter((el) => {
+      if (el.id === cmt.id) {
+        el.like = !el.like;
+      }
+    });
+    this.setState({
+      comments: likedComments,
+    });
+  };
+
+  handleArticleLike = () => {
+    const { like } = this.props;
+  };
+
+  timeForToday = (value) => {
+    const today = new Date();
+    const timeValue = new Date(value);
+    const betweenTime = Math.floor(
+      (today.getTime() - timeValue.getTime()) / 1000 / 60
+    );
+    if (betweenTime < 1) return '방금전';
+    if (betweenTime < 60) {
+      return `${betweenTime}분전`;
+    }
+    const betweenTimeHour = Math.floor(betweenTime / 60);
+    if (betweenTimeHour < 24) {
+      return `${betweenTimeHour}시간전`;
+    }
+    const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+    if (betweenTimeDay < 365) {
+      return `${betweenTimeDay}일전`;
+    }
+    return `${Math.floor(betweenTimeDay / 365)}년전`;
+  };
+
   render() {
+    const { article } = this.props;
     const { addedComment, like } = this.state;
-    const addBtn = !addedComment ? '' : '게시';
-    const heartChange = !like
+    const activeBtn = !addedComment ? '' : '게시';
+    const heartChange = !article.like
       ? 'https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
       : 'images/eunjungko/pinkheart.png';
     return (
@@ -70,14 +127,14 @@ class Article extends Component {
           <div className='userInfo'>
             <div className='imgBox'>
               <img
-                src='images/eunjungko/userProfile.jpg'
+                src={article.userImgSrc}
                 alt='userProfile'
                 className='userProfile middle'
               />
             </div>
             <div className='textArea'>
-              <div className='userName'>edie_ko</div>
-              <div className='userLocation sfont'>위코드</div>
+              <div className='userName'>{article.userName}</div>
+              <div className='userLocation sfont'>{article.userLocation}</div>
             </div>
           </div>
           <img
@@ -87,7 +144,7 @@ class Article extends Component {
           />
         </div>
         <img
-          src='images/eunjungko/articleImg.jpg'
+          src={article.articleImgSrc}
           alt='articleImg'
           className='articleImg'
         />
@@ -119,7 +176,7 @@ class Article extends Component {
           </div>
           <div className='commentArea'>
             <div className='likeStatus'>
-              <span className='bold'>wecode</span>님 외{' '}
+              <span className='bold'>{article.otherUserName}</span>님 외{' '}
               <span className='bold'>여러 명</span>이 좋아합니다
             </div>
             <div className='comment'></div>
@@ -128,10 +185,11 @@ class Article extends Component {
                 key={cmt.id}
                 comment={cmt}
                 onDelete={this.handleCommentDelete}
+                onLike={this.handleCommentLike}
               />
             ))}
           </div>
-          <div className='time gray'>4시간 전</div>
+          <div className='time gray'>{this.timeForToday(article.time)}</div>
         </div>
 
         <form
@@ -144,7 +202,7 @@ class Article extends Component {
             value={addedComment}
             onChange={(e) => this.handleInputChange(e)}
           />
-          <button className='addBtn'>{addBtn}</button>
+          <button className='addBtn'>{activeBtn}</button>
         </form>
       </article>
     );

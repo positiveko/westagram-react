@@ -6,8 +6,15 @@ class Comment extends Component {
     this.props.onDelete(this.props.comment);
   };
 
+  handleCommentLike = () => {
+    this.props.onLike(this.props.comment);
+  };
+
   render() {
-    const { userId, content } = this.props.comment;
+    const { userId, content, like } = this.props.comment;
+    const heartChange = !like
+      ? 'https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
+      : 'images/eunjungko/pinkheart.png';
     return (
       <div className='comment'>
         <div className='commentSet'>
@@ -20,9 +27,10 @@ class Comment extends Component {
           </button>
         </div>
         <img
-          src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
+          src={heartChange}
           alt='smallHeart'
           className='smallHeart'
+          onClick={() => this.handleCommentLike()}
         />
       </div>
     );

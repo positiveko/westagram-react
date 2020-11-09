@@ -26,7 +26,7 @@ class Nav extends Component {
 
   render() {
     const { searchActive, searchInputValue, searchList } = this.state;
-    console.log('check:   ', searchList);
+    // console.log('check:   ', searchList);
 
     return (
       <div className='Nav'>
