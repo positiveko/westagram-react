@@ -13,6 +13,10 @@ class Article extends Component {
     };
   }
 
+  handleArticleLike = () => {
+    this.props.onLike(this.props.article);
+  };
+
   componentDidMount() {
     this.paintComment();
   }
@@ -50,21 +54,19 @@ class Article extends Component {
     e.preventDefault();
     const { comments, addedComment, userId } = this.state;
     const addedComments = [...comments];
-    console.log(comments);
-    console.log(addedComments);
+    if (addedComment.trim() == '') {
+      return;
+    }
     addedComments.push({
       id: Date.now(),
       userId: userId,
       content: addedComment,
       like: false,
     });
-    console.log(addedComment);
-    console.log(addedComments);
     this.setState({
       addedComment: '',
       comments: addedComments,
     });
-    console.log(comments);
   };
 
   handleCommentDelete = (cmt) => {
@@ -87,10 +89,6 @@ class Article extends Component {
     this.setState({
       comments: likedComments,
     });
-  };
-
-  handleArticleLike = () => {
-    const { like } = this.props;
   };
 
   timeForToday = (value) => {
@@ -116,7 +114,7 @@ class Article extends Component {
 
   render() {
     const { article } = this.props;
-    const { addedComment, like } = this.state;
+    const { addedComment } = this.state;
     const activeBtn = !addedComment ? '' : '게시';
     const heartChange = !article.like
       ? 'https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
@@ -155,7 +153,8 @@ class Article extends Component {
                 src={heartChange}
                 alt='heart'
                 className='btn heart'
-                onClick={() => this.setState({ like: !like })}
+                id={article.id}
+                onClick={(el) => this.handleArticleLike(el)}
               />
               <img
                 src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/comment.png'

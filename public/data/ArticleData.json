@@ -1,0 +1,112 @@
+[
+  {
+    "id": 0,
+    "userImgSrc": "images/eunjungko/userProfile.jpg",
+    "userName": "edie_ko",
+    "userLocation": "Wecode",
+    "articleImgSrc": "images/eunjungko/articleImg.jpg",
+    "otherUserName": "positiveko",
+    "time": "Mon Nov 09 2020 17:31:08 GMT+0900",
+    "like": true
+  },
+  {
+    "id": 1,
+    "userImgSrc": "https://i.pinimg.com/564x/6a/ec/26/6aec260bdb2d4b1b5baff4ef21dccc73.jpg",
+    "userName": "kstepney0",
+    "userLocation": "Louredo",
+    "articleImgSrc": "https://i.pinimg.com/564x/6a/ec/26/6aec260bdb2d4b1b5baff4ef21dccc73.jpg",
+    "otherUserName": "sskilling0",
+    "time": "Mon Nov 09 2020 14:31:08 GMT+0900",
+    "like": false
+  },
+  {
+    "id": 2,
+    "userImgSrc": "https://i.pinimg.com/564x/e7/99/53/e79953da2bc867c48eca286e2c628ee6.jpg",
+    "userName": "asangster1",
+    "userLocation": "Liutang",
+    "articleImgSrc": "https://i.pinimg.com/564x/08/36/1d/08361d170480e3805ef619971ca5eb35.jpg",
+    "otherUserName": "mseawell1",
+    "time": "Mon Nov 09 2020 13:31:08 GMT+0900",
+    "like": true
+  },
+  {
+    "id": 3,
+    "userImgSrc": "https://i.pinimg.com/originals/5e/7b/cc/5e7bcc2a2b9210ab3db74327493c181b.jpg",
+    "userName": "ltremoulet2",
+    "userLocation": "Lunen",
+    "articleImgSrc": "https://i.pinimg.com/564x/a6/17/e7/a617e7ce62a483d19d9cfa557494a0d4.jpg",
+    "otherUserName": "tcarde2",
+    "time": "Mon Nov 08 2020 11:31:08 GMT+0900",
+    "like": false
+  },
+  {
+    "id": 4,
+    "userImgSrc": "https://i.pinimg.com/564x/13/8c/b0/138cb01350a66532c0c3f569f8683583.jpg",
+    "userName": "bgosart3",
+    "userLocation": "Dindima",
+    "articleImgSrc": "https://i.pinimg.com/564x/7a/12/50/7a1250ed10e161500d20ccd0a9840960.jpg",
+    "otherUserName": "cshawel3",
+    "time": "Mon Nov 07 2020 09:31:08 GMT+0900",
+    "like": true
+  },
+  {
+    "id": 5,
+    "userImgSrc": "https://i.pinimg.com/564x/05/23/bd/0523bda39361657c62d87cd3773ca743.jpg",
+    "userName": "vjirzik4",
+    "userLocation": "Pengchang",
+    "articleImgSrc": "https://i.pinimg.com/564x/8a/df/6f/8adf6f9087a4049e212fdc27d0a8a613.jpg",
+    "otherUserName": "gmeneux4",
+    "time": "Mon Nov 03 2020 09:31:08 GMT+0900",
+    "like": false
+  },
+  {
+    "id": 6,
+    "userImgSrc": "https://i.pinimg.com/564x/a1/4d/4c/a14d4c17ef8a766884b8114b4abe3833.jpg",
+    "userName": "jburgon5",
+    "userLocation": "Jialai",
+    "articleImgSrc": "https://i.pinimg.com/564x/ba/bb/82/babb82704112591e590bd5fa112c8dea.jpg",
+    "otherUserName": "kmcnirlan5",
+    "time": "Mon Nov 03 2020 09:31:08 GMT+0900",
+    "like": false
+  },
+  {
+    "id": 7,
+    "userImgSrc": "https://i.pinimg.com/564x/50/a0/1b/50a01bb1c8580a48efc3594b97f80e32.jpg",
+    "userName": "mcoultish6",
+    "userLocation": "Bourg-en-Bresse",
+    "articleImgSrc": "https://i.pinimg.com/564x/60/7f/41/607f414cf59f15febe80bceddc41a648.jpg",
+    "otherUserName": "ahasted6",
+    "time": "Mon Nov 01 2020 17:31:08 GMT+0900",
+    "like": false
+  },
+  {
+    "id": 8,
+    "userImgSrc": "https://i.pinimg.com/564x/07/3a/fc/073afc2f3f4eb26b0df34c0da876b3e8.jpg",
+    "userName": "iphilipsson7",
+    "userLocation": "Santa Cruz",
+    "articleImgSrc": "https://i.pinimg.com/564x/3c/b2/4a/3cb24a9fa3b21aa602a7192a9757f2de.jpg",
+    "otherUserName": "hjurczik7",
+    "time": "Mon Sep 21 2020 06:31:08 GMT+0900",
+    "like": true
+  },
+  {
+    "id": 9,
+    "userImgSrc": "https://i.pinimg.com/564x/9d/34/7d/9d347da37da204faca709294827964fc.jpg",
+    "userName": "rmoxon8",
+    "userLocation": "Perlez",
+    "articleImgSrc": "https://i.pinimg.com/564x/87/7d/c9/877dc90c635f737bb06743aba9fabb1a.jpg",
+    "otherUserName": "dklyn8",
+    "time": "Mon Sep 19 2020 05:31:08 GMT+0900",
+    "like": false
+  },
+  {
+    "id": 10,
+    "userImgSrc": "https://i.pinimg.com/564x/3c/b6/71/3cb6717e4b793a94843e6fd8da9b2a21.jpg",
+    "userName": "btrattles9",
+    "userLocation": "Klayusiwalan",
+    "articleImgSrc": "https://i.pinimg.com/564x/45/28/ce/4528ceb3b0df848b923c0fe5999dde7f.jpg",
+    "otherUserName": "trichens9",
+    "time": "Mon Jul 09 2020 02:31:08 GMT+0900",
+    "like": true
+  }
+]

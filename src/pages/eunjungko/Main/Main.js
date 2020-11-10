@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Main.scss';
 import '../../../Styles/common.scss';
-import Nav from './Nav/Nav';
+import Nav from '../../../Components/Nav/Nav';
 import MainLeft from './MainLeft/MainLeft';
 import MainRight from './MainRight/MainRight';
 

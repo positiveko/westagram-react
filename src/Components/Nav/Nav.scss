@@ -1,0 +1,160 @@
+.Nav {
+  width: 100%;
+  position: sticky;
+  height: 54px;
+  top: 0;
+  background-color: #fff;
+  border-bottom: 1px solid lightgray;
+
+  .NavWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 940px;
+    height: 54px;
+    top: 0;
+    margin: 0 auto;
+
+    .navRight img {
+      margin-right: 6px;
+    }
+
+    .textLogo {
+      width: 103px;
+      height: 29px;
+      object-fit: contain;
+    }
+    .searchActive {
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      width: 220px;
+      height: 30px;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background-color: #fafafa;
+      cursor: text;
+
+      .magnifier.active {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+        background-image: url('/images/eunjungko/magnifier.png');
+        background-size: cover;
+      }
+      .searchInput.active {
+        margin-left: 40px;
+        color: #797878;
+        border: none;
+        background-color: #fafafa;
+        text-align: left;
+      }
+      .xbtn.active {
+        display: block;
+        width: 13px;
+        height: 13px;
+        margin: auto 0;
+        margin-right: 10px;
+        background-image: url('/images/eunjungko/xbtn.png');
+        background-size: cover;
+      }
+      .searchResultList {
+        position: absolute;
+        width: 242px;
+        max-height: 360px;
+        top: 50px;
+        overflow-y: auto;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        background-color: white;
+      }
+
+      .searchResultList.displayNone {
+        display: none;
+      }
+
+      .searchResultSet {
+        display: flex;
+        align-items: center;
+        width: 240px;
+        height: 67px;
+        border-bottom: 1px solid #dbdbdb;
+        background-color: white;
+      }
+
+      .searchResultImg {
+        border-radius: 50%;
+        margin: 0 10px 0 10px;
+      }
+    }
+    .search {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 220px;
+      height: 30px;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background-color: #fafafa;
+      cursor: text;
+
+      .magnifier {
+        justify-content: center;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 10px;
+        left: 80px;
+        margin: auto 0;
+        background-image: url('/images/eunjungko/magnifier.png');
+        background-size: cover;
+      }
+
+      .searchInput {
+        width: 60%;
+        margin: 0 3px;
+        color: #797878;
+        border: none;
+        background-color: #fafafa;
+        text-align: center;
+      }
+
+      .xbtn {
+        display: none;
+      }
+
+      .searchResultList {
+        position: absolute;
+        width: 242px;
+        max-height: 360px;
+        top: 50px;
+        overflow-y: auto;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        background-color: white;
+      }
+
+      .searchResultList.displayNone {
+        display: none;
+      }
+
+      .searchResultSet {
+        display: flex;
+        align-items: center;
+        width: 240px;
+        height: 67px;
+        border-bottom: 1px solid #dbdbdb;
+        background-color: white;
+      }
+
+      .searchResultImg {
+        border-radius: 50%;
+        margin: 0 10px 0 10px;
+      }
+    }
+  }
+}

@@ -17,22 +17,32 @@ class MainLeft extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
         this.setState({
           articleList: res,
         });
       });
   }
 
+  handleArticleLike = (article) => {
+    const articleList = [...this.state.articleList];
+    articleList.filter((el) => {
+      if (el.id == article.id) {
+        el.like = !el.like;
+      }
+    });
+    this.setState({
+      articleList,
+    });
+  };
+
   render() {
     const { articleList } = this.state;
-    // console.log(articleList);
     return (
       <div className='MainLeft'>
         <Story />
         <div className='articleArea'>
           {articleList.map((el) => (
-            <Article key={el.id} article={el} />
+            <Article key={el.id} article={el} onLike={this.handleArticleLike} />
           ))}
         </div>
       </div>
