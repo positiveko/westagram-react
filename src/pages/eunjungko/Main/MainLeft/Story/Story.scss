@@ -20,9 +20,11 @@
     width: 80px;
     height: 100px;
     margin: auto 3px;
+
     &:first-child {
       margin-left: 10px;
     }
+
     &:last-child {
       padding-right: 10px;
     }
@@ -35,12 +37,14 @@
       height: 64px;
       background-image: url('/images/eunjungko/rainbow.png');
       background-size: cover;
+
       img {
         width: 56px;
         height: 56px;
         border-radius: 50%;
       }
     }
+
     .storyUser {
       width: 65px;
       margin-top: 5px;

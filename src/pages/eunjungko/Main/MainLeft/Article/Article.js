@@ -14,7 +14,7 @@ class Article extends Component {
   }
 
   handleArticleLike = () => {
-    this.props.onLike(this.props.article);
+    this.props.onLike();
   };
 
   componentDidMount() {
@@ -53,16 +53,14 @@ class Article extends Component {
   handleSubmitComment = (e) => {
     e.preventDefault();
     const { comments, addedComment, userId } = this.state;
-    const addedComments = [...comments];
     if (addedComment.trim() == '') {
       return;
     }
-    addedComments.push({
-      id: Date.now(),
-      userId: userId,
-      content: addedComment,
-      like: false,
-    });
+    const addedComments = [
+      ...comments,
+      { id: Date.now(), userId: userId, content: addedComment, like: false },
+    ];
+
     this.setState({
       addedComment: '',
       comments: addedComments,

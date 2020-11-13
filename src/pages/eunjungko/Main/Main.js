@@ -5,15 +5,10 @@ import Nav from '../../../Components/Nav/Nav';
 import MainLeft from './MainLeft/MainLeft';
 import MainRight from './MainRight/MainRight';
 
-class Main extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
+class MainEj extends Component {
   render() {
     return (
-      <div className='bodyEunjung'>
+      <div className='MainEj'>
         <Nav />
         <main>
           <MainLeft />
@@ -24,4 +19,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default MainEj;

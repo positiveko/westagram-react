@@ -6,19 +6,13 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchActive: false,
+      isSearchActive: false,
       searchValue: '',
-      searchPool: [],
-      tempList: [],
-      showList: false,
+      searchPool: SEARCH,
+      filteredUser: [],
+      isListActive: false,
     };
   }
-
-  componentDidMount = () => {
-    this.setState({
-      searchPool: SEARCH,
-    });
-  };
 
   onSearchInputChange = (e) => {
     this.setState({
@@ -26,71 +20,70 @@ class Nav extends Component {
     });
   };
 
+  handleBlur = (e) => {
+    const isEmpty = !e.target.value;
+    console.log(isEmpty);
+    this.setState({ isListActive: !isEmpty });
+  };
+
   searchId = (e) => {
     e.preventDefault();
     const { searchValue, searchPool } = this.state;
-    let searchKeywords = searchValue.split(' ');
-    this.setState({
-      tempList: [],
-      showList: false,
-    });
-    let tempList = searchPool.slice();
-    if (searchValue.trim() == '') {
-      this.setState({ showList: false });
-      return;
-    }
+    if (!searchValue.trim())
+      return this.setState({ isListActive: false, isSearchActive: false });
+    const searchKeywords = searchValue.split(' ');
+    let filteredUser = [];
     searchKeywords.forEach((key) => {
-      tempList = tempList.filter((e) => {
-        if (e.userId.includes(key)) {
+      filteredUser = searchPool.filter((user) => {
+        if (user.userId.includes(key)) {
           return true;
         }
       });
     });
-    this.setState({ tempList });
-    if (tempList.length == 0) {
-      this.setState({ showList: false });
-    } else {
-      this.setState({ tempList, showList: true });
-    }
+
+    console.log(filteredUser);
+    this.setState({ filteredUser, isListActive: filteredUser ? true : false });
   };
 
   render() {
-    const { searchActive, searchValue, showList, tempList } = this.state;
+    const {
+      isSearchActive,
+      searchValue,
+      isListActive,
+      filteredUser,
+    } = this.state;
 
     return (
-      <div className='Nav'>
+      <div className='NavEunjung'>
         <div className='NavWrapper'>
           <img
             src='images/eunjungko/logo_text.png'
             alt='Instagram'
             className='textLogo'
           />
-          <form className={searchActive ? 'searchActive' : 'search'}>
-            <div
-              className={searchActive ? 'magnifier active' : 'magnifier'}></div>
+          <form className={isSearchActive ? 'search active' : 'search'}>
+            <div className='magnifier'></div>
             <input
               type='text'
               autoCapitalize='none'
               placeholder='검색'
               value={searchValue}
-              className={searchActive ? 'searchInput active' : 'searchInput'}
+              className='searchInput'
               onChange={this.onSearchInputChange}
-              onFocus={() => this.setState({ searchActive: true })}
+              onFocus={() => this.setState({ isSearchActive: true })}
               onBlur={() =>
-                this.setState({
-                  searchValue: '',
-                  searchActive: false,
-                  showList: false,
-                })
+                this.setState({ isListActive: false, isSearchActive: false })
               }
               onKeyUp={this.searchId}
             />
-            <span className={searchActive ? 'xbtn active' : 'xbtn'}></span>
+            <span className='xbtn'></span>
             <div
               className={
-                showList ? 'searchResultList' : 'searchResultList displayNone'
+                isListActive
+                  ? 'searchResultList'
+                  : 'searchResultList displayNone'
               }>
-              {tempList.map((e) => (
+              {filteredUser.map((e) => (
                 <div className='searchResultSet' key={e.id}>
                   <img
                     src={e.imgUrl}

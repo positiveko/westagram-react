@@ -12,7 +12,7 @@ class MainLeft extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/ArticleData.json', {
+    fetch('/data/ArticleData.json', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -23,15 +23,22 @@ class MainLeft extends Component {
       });
   }
 
-  handleArticleLike = (article) => {
-    const articleList = [...this.state.articleList];
-    articleList.filter((el) => {
-      if (el.id == article.id) {
-        el.like = !el.like;
-      }
-    });
+  handleArticleLike = (articleId) => {
+    const { articleList } = this.state;
+    // const articleList = [...this.state.articleList];
+    // articleList.filter((el) => {
+    //   if (el.id == article.id) {
+    //     el.like = !el.like;
+    //   }
+    // });
     this.setState({
-      articleList,
+      articleList: this.state.articleList.map((article) => {
+        if (articleId !== article.id) {
+          return article;
+        } else {
+          return { ...article, like: !article.like };
+        }
+      }),
     });
   };
 
@@ -42,7 +49,11 @@ class MainLeft extends Component {
         <Story />
         <div className='articleArea'>
           {articleList.map((el) => (
-            <Article key={el.id} article={el} onLike={this.handleArticleLike} />
+            <Article
+              key={el.id}
+              article={el}
+              onLike={() => this.handleArticleLike(el.id)}
+            />
           ))}
         </div>
       </div>

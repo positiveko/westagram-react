@@ -1,67 +1,61 @@
-/* 전체 도큐먼트에 중복 할당되는 클래스 */
-.btn {
-  height: 30px;
-  width: 25px;
-  height: 25px;
-  margin: 15px 10px 15px 10px;
-}
+.MainEj {
+  /* 전체 도큐먼트에 중복 할당되는 클래스 */
+  .btn {
+    height: 30px;
+    width: 25px;
+    height: 25px;
+    margin: 15px 10px 15px 10px;
+  }
 
-.userName,
-.userId,
-.bold {
-  font-weight: 700;
-}
+  .userName,
+  .userId,
+  .bold {
+    font-weight: 700;
+  }
 
-.gray {
-  color: #797878;
-}
+  .gray {
+    color: #797878;
+  }
 
-.darkgray {
-  color: #909090;
-}
+  .darkgray {
+    color: #909090;
+  }
 
-.lightgray {
-  color: #bebebe;
-}
+  .lightgray {
+    color: #bebebe;
+  }
 
-.userInfo .userProfile {
-  border-radius: 50%;
-}
+  .userProfile {
+    border-radius: 50%;
+  }
 
-.userInfo .textArea {
-  padding-left: 10px;
-}
+  .textArea {
+    padding-left: 10px;
+  }
 
-input:focus {
-  outline: none;
-}
+  input:focus {
+    outline: none;
+  }
 
-.big {
-  width: 56px;
-  height: 56px;
-}
+  .big {
+    width: 56px;
+    height: 56px;
+  }
 
-.middle {
-  width: 32px;
-  height: 32px;
-}
+  .middle {
+    width: 32px;
+    height: 32px;
+  }
 
-.small {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-}
+  .small {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+  }
 
-.sfont {
-  font-size: 11px;
-}
-
-/* 본문 */
-#root {
-  width: 100%;
-}
-
-.bodyEunjung {
+  .sfont {
+    font-size: 11px;
+  }
   /* 메인 시작 */
   main {
     display: flex;

@@ -4,6 +4,7 @@
   height: 430px;
   top: 100px;
   margin-left: 30px;
+
   .userInfo {
     display: flex;
     flex-direction: row;
@@ -11,24 +12,29 @@
     width: 293px;
     height: 56px;
   }
+
   .userText {
     padding: 0 auto;
   }
+
   .recommendText {
     display: flex;
     justify-content: space-between;
     margin: 16px 0 4px 0;
   }
+
   .recommended {
     .recommendBox {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       margin-bottom: 0;
+
       .userInfo {
         display: flex;
         flex-direction: row;
         height: 45px;
+
         .userText {
           margin-left: 13px;
         }
@@ -50,17 +56,20 @@
     padding: 0;
     border-image-repeat: stretch;
     list-style: none;
+
     li {
       display: inline-block;
       vertical-align: baseline;
       margin: 0;
       line-height: 13px;
       font-size: 11px;
+
       &::after {
         content: '\00B7';
         float: right;
         margin-left: 0.25em;
       }
+
       &:last-child::after {
         display: none;
       }
