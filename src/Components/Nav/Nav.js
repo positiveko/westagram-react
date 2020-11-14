@@ -32,16 +32,21 @@ class Nav extends Component {
     if (!searchValue.trim())
       return this.setState({ isListActive: false, isSearchActive: false });
     const searchKeywords = searchValue.split(' ');
+    let tempSearchPool = [...searchPool];
     let filteredUser = [];
     searchKeywords.forEach((key) => {
-      filteredUser = searchPool.filter((user) => {
-        if (user.userId.includes(key)) {
-          return true;
-        }
-      });
+      if (key !== '') {
+        filteredUser = tempSearchPool.filter((user) => {
+          if (user.userId.includes(key)) {
+            return true;
+          }
+        });
+        tempSearchPool = [...filteredUser];
+      }
     });
-
-    console.log(filteredUser);
+    if (filteredUser.length == 0) {
+      return this.setState({ isListActive: false });
+    }
     this.setState({ filteredUser, isListActive: filteredUser ? true : false });
   };
 
