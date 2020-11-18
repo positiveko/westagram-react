@@ -6,11 +6,11 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSearchActive: false,
       searchValue: '',
+      isSearchActive: false,
+      isListActive: false,
       searchPool: SEARCH,
       filteredUser: [],
-      isListActive: false,
     };
   }
 
@@ -20,20 +20,17 @@ class Nav extends Component {
     });
   };
 
-  handleBlur = (e) => {
-    const isEmpty = !e.target.value;
-    console.log(isEmpty);
-    this.setState({ isListActive: !isEmpty });
-  };
-
   searchId = (e) => {
     e.preventDefault();
     const { searchValue, searchPool } = this.state;
+
     if (!searchValue.trim())
       return this.setState({ isListActive: false, isSearchActive: false });
+
     const searchKeywords = searchValue.split(' ');
     let tempSearchPool = [...searchPool];
     let filteredUser = [];
+
     searchKeywords.forEach((key) => {
       if (key !== '') {
         filteredUser = tempSearchPool.filter((user) => {
@@ -44,10 +41,12 @@ class Nav extends Component {
         tempSearchPool = [...filteredUser];
       }
     });
+
     if (filteredUser.length == 0) {
       return this.setState({ isListActive: false });
     }
-    this.setState({ filteredUser, isListActive: filteredUser ? true : false });
+
+    this.setState({ filteredUser, isListActive: !!filteredUser });
   };
 
   render() {
