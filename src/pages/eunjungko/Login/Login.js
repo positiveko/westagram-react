@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import './Login.scss';
 import '../../../Styles/common.scss';
 
-const API = 'http://10.58.4.129:8000/user/login'; //회원가입
+// const API = 'http://10.58.4.129:8000/user/login';
 
 class LoginEj extends Component {
   constructor() {
@@ -16,25 +16,25 @@ class LoginEj extends Component {
     };
   }
 
-  handleIdChange = (e) => {
-    this.setState({ id: e.target.value });
-  };
-
-  handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value });
-  };
-
   showPassword = () => {
     this.setState({ hiddenPW: !this.state.hiddenPW });
+  };
+
+  handleInput = (e) => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value,
+    });
   };
 
   checkValidation = (e) => {
     e.preventDefault();
     const { id, password } = this.state;
-    console.log('yes');
     const checkId = id.includes('@');
     const checkPw = password.length > 7;
-
+    if (checkId && checkPw) {
+      this.props.history.push('/MainEj');
+    }
     if (!checkId) {
       return alert('아이디는 @를 포함해야 합니다!');
     }
@@ -42,25 +42,25 @@ class LoginEj extends Component {
       return alert('비밀번호는 8자 이상입니다!');
     }
 
-    fetch(API, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: id,
-        password: password,
-        phone_number: '01098580906',
-        name: 'edie',
-      }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result) {
-          localStorage.setItem('hyun', result.token);
-          this.props.history.push('/Main');
-        } else {
-          alert('아이디 확인하기');
-        }
-      })
-      .catch((error) => console.log(error));
+    // fetch(API, {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: id,
+    //     password: password,
+    //     phone_number: '01098580906',
+    //     name: 'edie',
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => {
+    //     if (result) {
+    //       localStorage.setItem('hyun', result.token);
+    //       this.props.history.push('/Main');
+    //     } else {
+    //       alert('아이디 확인하기');
+    //     }
+    //   })
+    //   .catch((error) => console.log(error));
   };
 
   render() {
@@ -81,14 +81,16 @@ class LoginEj extends Component {
               className='id'
               placeholder='전화번호, 사용자 이름 또는 이메일'
               value={id}
-              onChange={this.handleIdChange}
+              name='id'
+              onChange={this.handleInput}
             />
             <input
               type={hiddenPW ? 'password' : 'text'}
               className='pw'
               placeholder='비밀번호'
               value={password}
-              onChange={this.handlePasswordChange}
+              name='password'
+              onChange={this.handleInput}
             />
             <span className='showPw' onClick={this.showPassword}>
               {hiddenPW ? 'Show' : 'Hide'}
